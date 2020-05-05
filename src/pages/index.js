@@ -60,9 +60,7 @@ const IndexPage = () => {
         <title>Home Page</title>
       </Helmet>
 
-      <Map {...mapSettings}>
-        <Marker ref={markerRef} position={CENTER} />
-      </Map>
+      <Map {...mapSettings}></Map>
 
       <Container type="content" className="text-center home-start">
         <h2>Still Getting Started?</h2>
