@@ -31,7 +31,7 @@ const TotalConfirmedCases = () => {
       <div>
         <h3>Total Confirmed</h3>
         <h2>
-          <strong>{confirmedCases}</strong>
+          <strong>{confirmedCases.toLocaleString()}</strong>
         </h2>
       </div>
     );
