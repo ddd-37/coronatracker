@@ -18,14 +18,7 @@ const TriPanelContainer = ({ children }) => {
 };
 
 TriPanelContainer.propTypes = {
-  children: PropTypes.arrayOf(function (
-    propValue,
-    key,
-    componentName,
-    location,
-    propFullName
-  ) {
-    console.log(propValue.length !== 3);
+  children: PropTypes.arrayOf(function (propValue) {
     if (propValue.length !== 3) {
       return new Error(
         "TriPanelContainer needs to have 3 children passed to it"

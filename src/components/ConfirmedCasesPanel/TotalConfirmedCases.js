@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const ConfirmsCasesPanel = () => {
+const TotalConfirmedCases = () => {
   const [isLoading, setLoading] = useState(false);
   const [confirmedCases, setConfirmedCases] = useState([]);
 
   useEffect(() => {
     async function getConfirmedCases() {
-      let response;
       setLoading(true);
       try {
-        response = await axios.get("https://corona.lmao.ninja/v2/all");
-        console.log("getConfirmedCases -> response", response);
-        setConfirmedCases(response.data.cases);
+        const casesConfirmed = await axios.get(
+          "https://corona.lmao.ninja/v2/all"
+        );
+        setConfirmedCases(casesConfirmed.data.cases);
       } catch (e) {
         console.log(`Failed to fetch all confirmed cases: ${e.message}`, e);
         return;
@@ -25,7 +25,7 @@ const ConfirmsCasesPanel = () => {
   }, []);
 
   let totalConfirmed =
-    isLoading && confirmedCases != undefined ? (
+    isLoading && confirmedCases !== undefined ? (
       <span>Loading...</span>
     ) : (
       <div>
@@ -39,4 +39,4 @@ const ConfirmsCasesPanel = () => {
   return totalConfirmed;
 };
 
-export default ConfirmsCasesPanel;
+export default TotalConfirmedCases;
