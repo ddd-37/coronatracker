@@ -5,8 +5,10 @@ import L from "leaflet";
 import axios from "axios";
 
 import Layout from "components/Layout";
-import Container from "components/Container";
+import ConfirmedCasesPanel from "components/ConfirmedCasesPanel";
 import Map from "components/Map";
+import TriPanelContainer from "../components/TriPanelContainer";
+import MoreInfoPanel from "../components/MoreInfoPanel";
 
 const LOCATION = {
   lat: 0,
@@ -109,7 +111,7 @@ const IndexPage = () => {
 
   const mapSettings = {
     center: CENTER,
-    defaultBaseMap: "OpenStreetMap",
+    defaultBaseMap: "Mapbox",
     zoom: DEFAULT_ZOOM,
     mapEffect,
   };
@@ -119,22 +121,11 @@ const IndexPage = () => {
       <Helmet>
         <title>Home Page</title>
       </Helmet>
-
-      <Map {...mapSettings}></Map>
-
-      <Container type="content" className="text-center home-start">
-        <h2>Still Getting Started?</h2>
-        <p>Run the following in your terminal!</p>
-        <pre>
-          <code>
-            gatsby new [directory]
-            https://github.com/colbyfayock/gatsby-starter-leaflet
-          </code>
-        </pre>
-        <p className="note">
-          Note: Gatsby CLI required globally for the above command
-        </p>
-      </Container>
+      <TriPanelContainer>
+        <ConfirmedCasesPanel />
+        <Map {...mapSettings}></Map>
+        <MoreInfoPanel />
+      </TriPanelContainer>
     </Layout>
   );
 };
