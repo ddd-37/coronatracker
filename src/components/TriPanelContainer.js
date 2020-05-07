@@ -3,10 +3,16 @@ import { PropTypes } from "prop-types";
 
 const TriPanelContainer = ({ children }) => {
   return (
-    <div>
-      <div>{children[0]}</div>
-      <div>{children[1]}</div>
-      <div>{children[2]}</div>
+    <div className="TriPanelContainer">
+      <div className="TriPanel__Panel" id="TriPanel__1">
+        {children[0]}
+      </div>
+      <div className="TriPanel__Panel" id="TriPanel__2">
+        {children[1]}
+      </div>
+      <div className="TriPanel__Panel" id="TriPanel__3">
+        {children[2]}
+      </div>
     </div>
   );
 };
