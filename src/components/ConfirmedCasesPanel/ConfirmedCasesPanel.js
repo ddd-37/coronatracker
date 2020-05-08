@@ -1,13 +1,19 @@
 import React from "react";
+
+import ClickThroughPanel from "./../ClickThroughPanel/ClickThroughPanel";
 import TotalConfirmedCases from "./TotalConfirmedCases";
-import CasesByArea from "./CasesByArea";
+import CasesByCountry from "./CasesByCountry";
+import CasesByProvince from "./CasesByProvince";
 
 const ConfirmedCasesPanel = () => {
   return (
-    <div>
+    <>
       <TotalConfirmedCases />
-      <CasesByArea />
-    </div>
+      <ClickThroughPanel>
+        <CasesByCountry title={"Country"} />
+        <CasesByProvince title={"Region"} />
+      </ClickThroughPanel>
+    </>
   );
 };
 

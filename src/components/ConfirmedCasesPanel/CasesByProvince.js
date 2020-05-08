@@ -1,30 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const CasesByArea = () => {
+const CasesByCountry = () => {
   const [isLoading, setLoading] = useState(false);
-  const [confirmedCasesByCountry, setConfirmedCasesByCountry] = useState([]);
-  const [casesByCounty, setcasesByCounty] = useState([]);
+  const [casesByProvince, setCasesByProvince] = useState([]);
 
   useEffect(() => {
     async function getConfirmedCases() {
-      let countryData;
-      let countyData;
+      let response;
+
       setLoading(true);
       try {
-        countryData = await axios.get("https://corona.lmao.ninja/v2/countries");
-        countyData = await axios.get("https://disease.sh/v2/jhucsse");
+        response = await axios.get("https://disease.sh/v2/jhucsse");
 
-        countryData.data.sort((a, b) => {
-          return b.cases - a.cases;
-        });
-
-        countyData.data.sort((a, b) => {
+        response.data.sort((a, b) => {
           return b.stats.confirmed - a.stats.confirmed;
         });
-
-        setConfirmedCasesByCountry(countryData.data);
-        setcasesByCounty(countyData.data);
+        setCasesByProvince(response.data);
       } catch (e) {
         console.log(`Failed to fetch all confirmed cases: ${e.message}`, e);
         return;
@@ -37,25 +29,14 @@ const CasesByArea = () => {
   }, []);
 
   let totalConfirmed =
-    isLoading && confirmedCasesByCountry !== undefined ? (
+    isLoading && casesByProvince !== undefined ? (
       <span>Loading...</span>
     ) : (
       <div>
         {" "}
         <div>Confirmed Cases by Province/State/Dependency</div>
         <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
-          {/* {confirmedCasesByCountry.map((data) => {
-            return (
-              <div key={data.country} style={{borderBottom: '1px solid #f4f4f4'}}>
-                <span>
-                  <strong>{data.cases}</strong> {data.country}
-                </span>
-              </div>
-            );
-          })} */}
-          {casesByCounty.map((data, i) => {
-            console.log("CasesByArea -> data", data);
-
+          {casesByProvince.map((data, i) => {
             // Some countries don't provide data by province or county, we'll omit those for now
             if (!data.province) {
               return false;
@@ -81,4 +62,4 @@ const CasesByArea = () => {
   return totalConfirmed;
 };
 
-export default CasesByArea;
+export default CasesByCountry;
