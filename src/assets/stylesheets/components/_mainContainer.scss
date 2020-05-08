@@ -1,17 +1,16 @@
-.TriPanelContainer {
+.mainContainer {
   display: flex;
   flex: 1;
-  justify-content: center;
 }
 
-#TriPanel__1 {
+#main__1 {
   flex: 0 0 10vw;
 }
 
-#TriPanel__2 {
+#main__2 {
   flex: 0 0 64vw;
 }
 
-#TriPanel__3 {
+#main__3 {
   flex: 0 0 16vw;
 }

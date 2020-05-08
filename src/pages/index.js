@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import Layout from "components/Layout";
 import ConfirmedCasesPanel from "components/ConfirmedCasesPanel/ConfirmedCasesPanel";
 import Map from "components/Map";
-import TriPanelContainer from "../components/TriPanelContainer";
+import MainContainer from "../components/MainContainer";
 import MoreInfoPanel from "../components/MoreInfoPanel";
 
 import mapEffect from "./../utils/mapeffect";
@@ -29,11 +29,11 @@ const IndexPage = () => {
       <Helmet>
         <title>Home Page</title>
       </Helmet>
-      <TriPanelContainer>
+      <MainContainer>
         <ConfirmedCasesPanel />
         <Map {...mapSettings}></Map>
         <MoreInfoPanel />
-      </TriPanelContainer>
+      </MainContainer>
     </Layout>
   );
 };
