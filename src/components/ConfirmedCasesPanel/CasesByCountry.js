@@ -33,7 +33,7 @@ const CasesByArea = () => {
     isLoading && casesByCountry !== undefined ? (
       <span>Loading...</span>
     ) : (
-      <div>
+      <section>
         <div>Confirmed Cases by Country/Region/Sovereignty</div>
         <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
           {casesByCountry.map((data) => {
@@ -50,7 +50,7 @@ const CasesByArea = () => {
           })}
         </div>
         <div></div>
-      </div>
+      </section>
     );
 
   return totalConfirmed;

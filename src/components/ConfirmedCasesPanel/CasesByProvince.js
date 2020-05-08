@@ -32,7 +32,7 @@ const CasesByCountry = () => {
     isLoading && casesByProvince !== undefined ? (
       <span>Loading...</span>
     ) : (
-      <div>
+      <section>
         {" "}
         <div>Confirmed Cases by Province/State/Dependency</div>
         <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
@@ -56,7 +56,7 @@ const CasesByCountry = () => {
           })}
         </div>
         <div></div>
-      </div>
+      </section>
     );
 
   return totalConfirmed;

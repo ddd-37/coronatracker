@@ -10,6 +10,8 @@ const ConfirmedCasesPanel = () => {
     <>
       <TotalConfirmedCases />
       <ClickThroughPanel>
+        {/*The title prop in the components below is used to genereate the  button tabs*/}
+
         <CasesByCountry title={"Country"} />
         <CasesByProvince title={"Region"} />
       </ClickThroughPanel>

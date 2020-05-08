@@ -1,0 +1,12 @@
+.clickThroughPanel {
+  display: flex;
+  flex-direction: column;
+}
+
+.clickThrough__btn-container {
+  margin-top: 1rem;
+}
+.clickThrough__btn {
+  margin: 0.5rem;
+  border: 1px solid #000;
+}
