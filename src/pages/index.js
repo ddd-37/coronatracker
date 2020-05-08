@@ -17,30 +17,50 @@ const LOCATION = {
 const CENTER = [LOCATION.lat, LOCATION.lng];
 const DEFAULT_ZOOM = 2;
 
-const GlobalData = createContext(null);
+const Data = createContext(null);
+
 const IndexPage = () => {
   const [globalData, setGlobalData] = useState(false);
+  const [countryData, setCountryData] = useState(false);
+  const [provinceData, setProvinceData] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const getGlobalData = async () => {
+    const getData = async () => {
       setIsLoading(true);
 
       try {
-        const response = await axios.get("https://corona.lmao.ninja/v2/all");
-        setGlobalData(response);
+        const responseGlobalData = await axios.get(
+          "https://corona.lmao.ninja/v2/all"
+        );
+        setGlobalData(responseGlobalData.data);
+
+        const responseCountryData = await axios.get(
+          "https://corona.lmao.ninja/v2/countries"
+        );
+
+        responseCountryData.data.sort((a, b) => {
+          return b.cases - a.cases;
+        });
+
+        setCountryData(responseCountryData.data);
+
+        const responseProvinceData = await axios.get(
+          "https://disease.sh/v2/jhucsse"
+        );
+        responseProvinceData.data.sort((a, b) => {
+          return b.stats.confirmed - a.stats.confirmed;
+        });
+        setProvinceData(responseProvinceData.data);
       } catch (e) {
         setIsError(true);
-        console.log(
-          `Index.js has a problem with getGlobalData: ${e.message}`,
-          e
-        );
+        console.log(`Index.js has a problem with getData: ${e.message}`, e);
       } finally {
         setIsLoading(false);
       }
     };
-    getGlobalData();
+    getData();
   }, []);
 
   const mapSettings = {
@@ -59,13 +79,19 @@ const IndexPage = () => {
         <div>Hmmm, something went wrong, try refreshing the page.</div>
       )}
       {!isError && !isLoading && globalData ? (
-        <MainContainer>
-          <GlobalData.Provider value={globalData}>
+        <Data.Provider
+          value={{
+            global: globalData,
+            country: countryData,
+            province: provinceData,
+          }}
+        >
+          <MainContainer>
             <ConfirmedCasesPanel />
-          </GlobalData.Provider>
-          <Map {...mapSettings}></Map>
-          <MoreInfoPanel />
-        </MainContainer>
+            <Map {...mapSettings}></Map>
+            <MoreInfoPanel />
+          </MainContainer>
+        </Data.Provider>
       ) : (
         <div>Loading...</div>
       )}
@@ -73,4 +99,4 @@ const IndexPage = () => {
   );
 };
 
-export { IndexPage as default, GlobalData };
+export { IndexPage as default, Data };

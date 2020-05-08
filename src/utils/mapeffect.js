@@ -7,6 +7,7 @@ import axios from "axios";
  * @example Here this is and example of being used to zoom in and set a popup on load
  */
 
+// ToDo - look into useContext here
 async function mapEffect({ leafletElement: map }) {
   let response;
 
