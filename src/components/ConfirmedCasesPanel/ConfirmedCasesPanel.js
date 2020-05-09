@@ -8,11 +8,12 @@ import CasesByCountry from "./CasesByCountry";
 import CasesByProvince from "./CasesByProvince";
 
 const ConfirmedCasesPanel = () => {
-  const data = useContext(Data);
+  const data = useContext(Data).global;
+  console.log("ConfirmedCasesPanel -> data", data.global);
 
   return (
     <>
-      <TotalConfirmedCases totalCases={data.global.cases} />
+      <TotalConfirmedCases totalCases={data.cases} />
       <ClickThroughPanel>
         {/*The title prop in the components below is used to genereate the  button tabs*/}
 

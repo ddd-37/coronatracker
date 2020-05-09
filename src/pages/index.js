@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 import ConfirmedCasesPanel from "components/ConfirmedCasesPanel/ConfirmedCasesPanel";
 import Map from "components/Map";
 import MainContainer from "../components/MainContainer";
-import MoreInfoPanel from "../components/MoreInfoPanel";
+import MoreInfoPanel from "../components/MoreInfoPanel/MoreInfoPanel";
 
 import mapEffect from "./../utils/mapeffect";
 import axios from "axios";
