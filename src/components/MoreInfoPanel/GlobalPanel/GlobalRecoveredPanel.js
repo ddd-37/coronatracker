@@ -15,7 +15,7 @@ const GlobalRecovered = () => {
         <h3>Global Recovered</h3>
         <h2 className="text-green">{totalRecovered.toLocaleString()}</h2>
       </div>
-      <div className="panel__item-contianer">
+      <div className="panel__item-container">
         {countryData.map((country, i) => {
           // Some countries don't have data on the recovered, we can just omit for now
           if (country.recovered === 0) {

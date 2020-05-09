@@ -16,7 +16,7 @@ const USDeathRecovPanel = () => {
           </strong>
         </h3>
       </div>
-      <div className="panel__item-contianer">
+      <div className="panel__item-container">
         {data.map((state, i) => {
           const recovered = state.cases - state.deaths - state.active;
           return (

@@ -21,7 +21,7 @@ const USTestedPanel = () => {
         <h3>Total Tests in US</h3>
         <h2 className="text-blue">{totalTests.toLocaleString()}</h2>
       </div>
-      <div className="panel__item-contianer">
+      <div className="panel__item-container">
         {data.map((state, i) => {
           return (
             <div key={state.state + i} className="panel__item">

@@ -14,7 +14,7 @@ const GlobalDeathsPanel = () => {
         <h3>Global Deaths</h3>
         <h2>{totalDeaths.toLocaleString()}</h2>
       </div>
-      <div className="panel__item-contianer">
+      <div className="panel__item-container">
         {countryData.map((country, i) => {
           return (
             <div key={country + i} className="panel__item">
