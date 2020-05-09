@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import Data from "../../../pages/index";
+import { Data } from "../../../pages/index";
 
 const USDeathRecovPanel = () => {
   const data = useContext(Data).states;

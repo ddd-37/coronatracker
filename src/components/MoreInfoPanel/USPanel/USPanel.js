@@ -8,9 +8,9 @@ import USHospitalizationPanel from "./USHospitalizationPanel";
 const USPanel = () => {
   return (
     <ClickThroughPanel>
-      <USDeathRecovPanel />
-      <USTestedPanel />
-      <USHospitalizationPanel />
+      <USDeathRecovPanel title="Deths/Recovered" />
+      <USTestedPanel title="Test Results" />
+      <USHospitalizationPanel tile="Hospitalization" />
     </ClickThroughPanel>
   );
 };

@@ -12,9 +12,9 @@ const GlobalDeathsPanel = () => {
     <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
       <h3>Global Deaths</h3>
       <h2>{totalDeaths.toLocaleString()}</h2>
-      {countryData.map((country) => {
+      {countryData.map((country, i) => {
         return (
-          <div>
+          <div key={country + i}>
             <p>
               <strong>{country.deaths.toLocaleString()}</strong> dead
             </p>
