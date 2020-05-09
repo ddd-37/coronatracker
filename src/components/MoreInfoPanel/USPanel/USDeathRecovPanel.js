@@ -7,18 +7,20 @@ const USDeathRecovPanel = () => {
 
   return (
     <div>
-      <h3>US State level</h3>
-      <h4>
-        <strong>
-          <span className="text-red">Deaths</span> /
-          <span className="text-green"> Recovered</span>
-        </strong>
-      </h4>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <div className="panel__header">
+        <h4>US State level</h4>
+        <h3>
+          <strong>
+            <span className="text-red">Deaths</span> /
+            <span className="text-green"> Recovered</span>
+          </strong>
+        </h3>
+      </div>
+      <div className="panel__item-contianer">
         {data.map((state, i) => {
           const recovered = state.cases - state.deaths - state.active;
           return (
-            <div key={state + i}>
+            <div key={state + i} className="panel__item">
               <p>
                 <span className="text-red">
                   {state.deaths.toLocaleString()}

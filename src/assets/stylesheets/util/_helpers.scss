@@ -10,38 +10,11 @@
   color: $green-400;
 }
 
+.text-blue {
+  color: $blue-400;
+}
+
 .note {
   color: $blue-grey-500;
   font-size: 0.8em;
-}
-
-.panel {
-  background: $panel-background;
-  border: $panel-border;
-  margin: 0 0.5rem 1rem;
-  padding: 0.5rem 0;
-}
-
-.panel__header {
-  margin-bottom: 1rem;
-  padding: 0 0.5rem;
-}
-
-.panel__item-contianer {
-  max-height: 55vh;
-  overflow-y: scroll;
-}
-
-.panel__item {
-  border-bottom: 1px solid $grey-dark;
-  margin-bottom: 0.25rem;
-  padding: 0.5rem;
-}
-
-.moreInfoPanel {
-  display: flex;
-}
-
-.moreInfoPanel .clickThroughPanel {
-  flex: 0 0 50%;
 }

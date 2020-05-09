@@ -17,13 +17,17 @@ const USTestedPanel = () => {
 
   return (
     <div>
-      <h3>Total Tests in US</h3>
-      <h2>{totalTests.toLocaleString()}</h2>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <div className="panel__header text-center">
+        <h3>Total Tests in US</h3>
+        <h2 className="text-blue">{totalTests.toLocaleString()}</h2>
+      </div>
+      <div className="panel__item-contianer">
         {data.map((state, i) => {
           return (
-            <div key={state.state + i}>
-              <p>{state.tests} tested</p>
+            <div key={state.state + i} className="panel__item">
+              <p>
+                <strong className="text-blue">{state.tests}</strong> tested
+              </p>
               <p>{state.state}, US</p>
             </div>
           );

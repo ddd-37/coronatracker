@@ -11,7 +11,7 @@ const CasesByArea = () => {
   let totalConfirmed = (
     <section>
       <div className="panel__header text-center">
-        <h3>Confirmed Cases by Country/Region/Sovereignty</h3>
+        <h4>Confirmed Cases by Country/Region/Sovereignty</h4>
       </div>
       <div className="panel__item-contianer">
         {data.map((data) => {

@@ -11,18 +11,23 @@ const GlobalRecovered = () => {
 
   return (
     <div>
-      <h3>Global Recovered</h3>
-      <h2>{totalRecovered.toLocaleString()}</h2>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <div className="panel__header text-center">
+        <h3>Global Recovered</h3>
+        <h2 className="text-green">{totalRecovered.toLocaleString()}</h2>
+      </div>
+      <div className="panel__item-contianer">
         {countryData.map((country, i) => {
           // Some countries don't have data on the recovered, we can just omit for now
           if (country.recovered === 0) {
             return false;
           }
           return (
-            <div key={country + i}>
+            <div key={country + i} className="panel__item">
               <p>
-                <strong>{country.recovered.toLocaleString()}</strong> recovered
+                <strong className="text-green">
+                  {country.recovered.toLocaleString()}
+                </strong>{" "}
+                recovered
               </p>
               <p>{country.country}</p>
             </div>
