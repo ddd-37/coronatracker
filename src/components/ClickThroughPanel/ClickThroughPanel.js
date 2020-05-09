@@ -33,7 +33,7 @@ const ClickThroughPanel = ({ children }) => {
 
   return (
     <div className="clickThroughPanel">
-      <div>{panels}</div>
+      {panels}
       <div>{buttons}</div>
     </div>
   );

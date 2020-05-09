@@ -4,6 +4,10 @@ import { Data } from "../../pages";
 const CasesByArea = () => {
   const data = useContext(Data).country;
 
+  data.sort((a, b) => {
+    return b.cases - a.cases;
+  });
+
   let totalConfirmed = (
     <section>
       <div className="panel__header text-center">

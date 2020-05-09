@@ -5,11 +5,8 @@ import USPanel from "./USPanel/USPanel";
 const MoreInfoPanel = () => {
   return (
     <section className="moreInfoPanel">
-      <div className="moreInfoPanel__top-panel">
-        <GlobalPanel />
-        <USPanel />
-      </div>
-      <div></div>
+      <GlobalPanel />
+      <USPanel />
     </section>
   );
 };

@@ -9,22 +9,27 @@ const GlobalDeathsPanel = () => {
   });
 
   return (
-    <div>
-      <h3>Global Deaths</h3>
-      <h2>{totalDeaths.toLocaleString()}</h2>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+    <>
+      <div className="panel__header text-center">
+        <h3>Global Deaths</h3>
+        <h2>{totalDeaths.toLocaleString()}</h2>
+      </div>
+      <div className="panel__item-contianer">
         {countryData.map((country, i) => {
           return (
-            <div key={country + i}>
+            <div key={country + i} className="panel__item">
               <p>
-                <strong>{country.deaths.toLocaleString()}</strong> dead
+                <strong className="text-red">
+                  {country.deaths.toLocaleString()}
+                </strong>{" "}
+                deaths
               </p>
               <p>{country.country}</p>
             </div>
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
