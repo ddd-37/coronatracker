@@ -25,7 +25,7 @@ const ClickThroughPanel = ({ children }) => {
     );
 
     return (
-      <div key={panel.props.title + i} style={display}>
+      <div className="panel" key={panel.props.title + i} style={display}>
         {panel}
       </div>
     );

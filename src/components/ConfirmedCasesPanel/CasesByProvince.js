@@ -6,8 +6,10 @@ const CasesByCountry = () => {
 
   let totalConfirmed = (
     <section>
-      <div>Confirmed Cases by Province/State/Dependency</div>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <div className="panel__header text-center">
+        <h3>Confirmed Cases by Province/State/Dependency</h3>
+      </div>
+      <div className="panel__item-contianer">
         {data.map((data, i) => {
           // Some countries don't provide data by province or county, we'll omit those for now
           if (!data.province) {
@@ -15,8 +17,8 @@ const CasesByCountry = () => {
           }
 
           return (
-            <div key={i} style={{ borderBottom: "1px solid #f4f4f4" }}>
-              <p>
+            <div key={i} className="panel__item">
+              <p className="text-red">
                 <strong>{data.stats.confirmed.toLocaleString()}</strong>{" "}
                 confirmed
               </p>

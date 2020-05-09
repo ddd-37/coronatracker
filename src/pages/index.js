@@ -12,10 +12,10 @@ import axios from "axios";
 
 const LOCATION = {
   lat: 20,
-  lng: 0,
+  lng: -20,
 };
 const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 2;
+const DEFAULT_ZOOM = 2.5;
 
 const Data = createContext(null);
 

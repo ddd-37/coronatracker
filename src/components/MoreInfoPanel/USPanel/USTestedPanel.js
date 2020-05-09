@@ -16,10 +16,10 @@ const USTestedPanel = () => {
   });
 
   return (
-    <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+    <div>
       <h3>Total Tests in US</h3>
       <h2>{totalTests.toLocaleString()}</h2>
-      <div>
+      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
         {data.map((state, i) => {
           return (
             <div key={state.state + i}>

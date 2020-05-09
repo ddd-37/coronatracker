@@ -6,25 +6,25 @@ const USDeathRecovPanel = () => {
   const data = useContext(Data).states;
 
   return (
-    <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+    <div>
       <h3>US State level</h3>
       <h4>
         <strong>
-          <span style={{ color: "red" }}>Deaths</span> /
-          <span style={{ color: "green" }}> Recovered</span>
+          <span className="text-red">Deaths</span> /
+          <span className="text-green"> Recovered</span>
         </strong>
       </h4>
-      <div>
+      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
         {data.map((state, i) => {
           const recovered = state.cases - state.deaths - state.active;
           return (
             <div key={state + i}>
               <p>
-                <span style={{ color: "red" }}>
+                <span className="text-red">
                   {state.deaths.toLocaleString()}
                 </span>{" "}
                 /
-                <span style={{ color: "green" }}>
+                <span className="text-green">
                   {" "}
                   <strong>{recovered.toLocaleString()}</strong>
                 </span>

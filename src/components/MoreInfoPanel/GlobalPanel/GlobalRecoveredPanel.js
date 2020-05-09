@@ -10,23 +10,25 @@ const GlobalRecovered = () => {
   });
 
   return (
-    <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+    <div>
       <h3>Global Recovered</h3>
       <h2>{totalRecovered.toLocaleString()}</h2>
-      {countryData.map((country, i) => {
-        // Some countries don't have data on the recovered, we can just omit for now
-        if (country.recovered === 0) {
-          return false;
-        }
-        return (
-          <div key={country + i}>
-            <p>
-              <strong>{country.recovered.toLocaleString()}</strong> recovered
-            </p>
-            <p>{country.country}</p>
-          </div>
-        );
-      })}
+      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+        {countryData.map((country, i) => {
+          // Some countries don't have data on the recovered, we can just omit for now
+          if (country.recovered === 0) {
+            return false;
+          }
+          return (
+            <div key={country + i}>
+              <p>
+                <strong>{country.recovered.toLocaleString()}</strong> recovered
+              </p>
+              <p>{country.country}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

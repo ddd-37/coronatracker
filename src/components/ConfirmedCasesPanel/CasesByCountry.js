@@ -6,16 +6,18 @@ const CasesByArea = () => {
 
   let totalConfirmed = (
     <section>
-      <div>Confirmed Cases by Country/Region/Sovereignty</div>
-      <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <div className="panel__header text-center">
+        <h3>Confirmed Cases by Country/Region/Sovereignty</h3>
+      </div>
+      <div className="panel__item-contianer">
         {data.map((data) => {
           return (
-            <div
-              key={data.country}
-              style={{ borderBottom: "1px solid #f4f4f4" }}
-            >
+            <div className="panel__item" key={data.country}>
               <span>
-                <strong>{data.cases.toLocaleString()}</strong> {data.country}
+                <strong className="text-red">
+                  {data.cases.toLocaleString()}
+                </strong>{" "}
+                {data.country}
               </span>
             </div>
           );

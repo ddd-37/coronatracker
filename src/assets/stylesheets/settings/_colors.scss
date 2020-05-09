@@ -290,8 +290,12 @@ $dark-white: rgba(255, 255, 255, 0.87);
 $light-white: rgba(255, 255, 255, 0.54);
 
 // Custom colors
-
 $gatsby-purple: rebeccapurple;
 $white-text: #e3e3e3;
-$dark: #081217;
+$grey-dark: #3b3b3b;
+$dark: #181818;
 $purple: #231339;
+
+// Panels
+$panel-border: 1px solid $grey-dark;
+$panel-background: #202020;
