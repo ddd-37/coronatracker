@@ -4,9 +4,33 @@ import { Data } from "../../../pages/index";
 
 const USTestedPanel = () => {
   const data = useContext(Data).states;
-  console.log("USTestedPanel -> data", data);
 
-  return <div></div>;
+  data.sort((a, b) => {
+    return b.tests - a.tests;
+  });
+
+  let totalTests = 0;
+
+  data.forEach((state) => {
+    totalTests += state.tests;
+  });
+
+  return (
+    <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
+      <h3>Total Tests in US</h3>
+      <h2>{totalTests.toLocaleString()}</h2>
+      <div>
+        {data.map((state) => {
+          return (
+            <div>
+              <p>{state.tests} tested</p>
+              <p>{state.state}, US</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default USTestedPanel;

@@ -4,8 +4,8 @@ import USPanel from "./USPanel/USPanel";
 
 const MoreInfoPanel = () => {
   return (
-    <section>
-      <div>
+    <section className="moreInfoPanel">
+      <div className="moreInfoPanel__top-panel">
         <GlobalPanel />
         <USPanel />
       </div>

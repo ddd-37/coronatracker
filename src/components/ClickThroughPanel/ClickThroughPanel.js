@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 
 const ClickThroughPanel = ({ children }) => {
-  console.log("ClickThroughPanel -> children", children);
   // We'll set the active to children[0] on render
   const [activePanel, setActivePanel] = useState(0);
-  console.log("ClickThroughPanel -> activePanel", activePanel);
+
   let buttons = [];
 
   const panels = children.map((panel, i) => {

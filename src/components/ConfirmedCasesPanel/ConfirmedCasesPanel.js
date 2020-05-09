@@ -9,7 +9,6 @@ import CasesByProvince from "./CasesByProvince";
 
 const ConfirmedCasesPanel = () => {
   const data = useContext(Data).global;
-  console.log("ConfirmedCasesPanel -> data", data.global);
 
   return (
     <>

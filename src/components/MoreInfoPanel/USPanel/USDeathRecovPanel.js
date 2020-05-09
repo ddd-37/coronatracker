@@ -4,10 +4,9 @@ import { Data } from "../../../pages/index";
 
 const USDeathRecovPanel = () => {
   const data = useContext(Data).states;
-  console.log("USDeathRecovPanel -> data", data);
 
   return (
-    <div>
+    <div style={{ maxHeight: "66vh", overflowY: "scroll" }}>
       <h3>US State level</h3>
       <h4>
         <strong>
