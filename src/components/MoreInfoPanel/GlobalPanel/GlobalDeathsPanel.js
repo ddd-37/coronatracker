@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Data } from "../../pages";
+import { Data } from "../../../pages";
 
 const GlobalDeathsPanel = () => {
   const totalDeaths = useContext(Data).global.deaths;

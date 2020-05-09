@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Data } from "../../pages";
+import { Data } from "../../../pages";
 
 const GlobalRecovered = () => {
   const totalRecovered = useContext(Data).global.recovered;

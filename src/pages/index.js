@@ -23,6 +23,7 @@ const IndexPage = () => {
   const [globalData, setGlobalData] = useState(false);
   const [countryData, setCountryData] = useState(false);
   const [provinceData, setProvinceData] = useState(false);
+  const [statesData, setStatesData] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -52,7 +53,14 @@ const IndexPage = () => {
         responseProvinceData.data.sort((a, b) => {
           return b.stats.confirmed - a.stats.confirmed;
         });
+
         setProvinceData(responseProvinceData.data);
+
+        const responseStatesData = await axios.get(
+          "https://corona.lmao.ninja/v2/states"
+        );
+
+        setStatesData(responseStatesData.data);
       } catch (e) {
         setIsError(true);
         console.log(`Index.js has a problem with getData: ${e.message}`, e);
@@ -60,6 +68,7 @@ const IndexPage = () => {
         setIsLoading(false);
       }
     };
+
     getData();
   }, []);
 
@@ -84,6 +93,7 @@ const IndexPage = () => {
             global: globalData,
             country: countryData,
             province: provinceData,
+            states: statesData,
           }}
         >
           <MainContainer>
