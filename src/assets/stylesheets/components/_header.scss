@@ -1,15 +1,8 @@
 header {
-
   width: 100%;
   color: $white;
-  background-color: $gatsby-purple;
-
-  .container {
-    display: flex;
-    justify-content: space-between;
-    height: 2.5em;
-    line-height: 2.5em;
-  }
+  background-color: $purple;
+  padding: 1rem;
 
   ul {
     list-style: none;
@@ -25,13 +18,11 @@ header {
     display: block;
     color: lighten($gatsby-purple, 50);
     text-decoration: none;
-    padding: 0 .5em;
+    padding: 0 0.5em;
   }
 
   p {
     font-size: 1.2em;
-    font-weight: bold;
     margin: 0;
   }
-
 }

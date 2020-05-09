@@ -20,9 +20,9 @@ const USTestedPanel = () => {
       <h3>Total Tests in US</h3>
       <h2>{totalTests.toLocaleString()}</h2>
       <div>
-        {data.map((state) => {
+        {data.map((state, i) => {
           return (
-            <div>
+            <div key={state.state + i}>
               <p>{state.tests} tested</p>
               <p>{state.state}, US</p>
             </div>

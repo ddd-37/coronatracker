@@ -1,8 +1,11 @@
 import React from "react";
-import Container from "./Container";
 
 const Navbar = () => {
-  return <Container className="Navbar"></Container>;
+  return (
+    <div className="navbar">
+      <h3>World Map</h3>
+    </div>
+  );
 };
 
 export default Navbar;

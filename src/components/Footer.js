@@ -1,13 +1,9 @@
-import React from 'react';
-
-import Container from 'components/Container';
+import React from "react";
 
 const Footer = () => {
   return (
     <footer>
-      <Container>
-        <p>&copy; { new Date().getFullYear() }, My Gatsby Site</p>
-      </Container>
+      <p>&copy; {new Date().getFullYear()}, Devon D Deason</p>
     </footer>
   );
 };

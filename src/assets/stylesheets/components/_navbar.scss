@@ -1,4 +1,7 @@
-.Navbar {
+.navbar {
   display: flex;
+  justify-content: center;
+  align-items: center;
   height: 3rem;
+  background: lighten($purple, 15%);
 }
