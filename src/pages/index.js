@@ -86,10 +86,11 @@ const IndexPage = () => {
     mapEffect,
   };
 
+  const title = process.env.REACT_APP_TITLE;
   return (
     <Layout pageName="home">
       <Helmet>
-        <title>Home Page</title>
+        <title>{title}}</title>
       </Helmet>
       {isError && (
         <div>Hmmm, something went wrong, try refreshing the page.</div>
