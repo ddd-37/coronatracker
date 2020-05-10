@@ -1,0 +1,11 @@
+.totalPanel {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.totalPanel__item {
+  flex: 1 1 auto;
+  padding: 1rem;
+  border-bottom: 1px solid $blue-grey-500;
+}

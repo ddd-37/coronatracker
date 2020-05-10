@@ -16,7 +16,7 @@ const CasesByArea = () => {
           <br /> Country/Region/Sovereignty
         </h4>
       </div>
-      <div className="panel__item-container">
+      <div className="infoBox panel__item-container">
         {data.map((data) => {
           return (
             <div className="panel__item" key={data.country}>
