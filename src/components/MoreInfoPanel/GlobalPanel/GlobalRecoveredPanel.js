@@ -10,8 +10,8 @@ const GlobalRecovered = () => {
   });
 
   return (
-    <div>
-      <div className="panel__header text-center">
+    <>
+      <div className="text-center">
         <h3>Global Recovered</h3>
         <h2 className="text-green">{totalRecovered.toLocaleString()}</h2>
       </div>
@@ -34,7 +34,7 @@ const GlobalRecovered = () => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

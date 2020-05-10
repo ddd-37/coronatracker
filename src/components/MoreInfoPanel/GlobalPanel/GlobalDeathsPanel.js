@@ -10,9 +10,9 @@ const GlobalDeathsPanel = () => {
 
   return (
     <>
-      <div className="panel__header text-center">
+      <div className="text-center">
         <h3>Global Deaths</h3>
-        <h2>{totalDeaths.toLocaleString()}</h2>
+        <h2 className="text-red">{totalDeaths.toLocaleString()}</h2>
       </div>
       <div className="panel__item-container">
         {countryData.map((country, i) => {

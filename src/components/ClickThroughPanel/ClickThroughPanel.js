@@ -12,7 +12,7 @@ const ClickThroughPanel = ({ children }) => {
     let display = { display: "none" };
     let activeClass = "";
     if (i === activePanel) {
-      display = { display: "block" };
+      display = { display: "flex" };
       activeClass = "active";
     }
 

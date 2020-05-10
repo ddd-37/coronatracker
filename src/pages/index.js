@@ -9,6 +9,10 @@ import MoreInfoPanel from "../components/MoreInfoPanel/MoreInfoPanel";
 
 import mapEffect from "./../utils/mapeffect";
 import axios from "axios";
+import ClickThroughPanel from "../components/ClickThroughPanel/ClickThroughPanel";
+import TotalConfirmedCases from "../components/ConfirmedCasesPanel/TotalConfirmedCases";
+import TotalsPanel from "../components/MobilePanels/TotalsPanel";
+import WorldPanel from "../components/MobilePanels/WorldPanel";
 
 const LOCATION = {
   lat: 20,
@@ -79,6 +83,7 @@ const IndexPage = () => {
     mapEffect,
   };
 
+  const isMobile = window.innerWidth < 856;
   return (
     <Layout pageName="home">
       <Helmet>
@@ -96,11 +101,19 @@ const IndexPage = () => {
             states: statesData,
           }}
         >
-          <MainContainer>
-            <ConfirmedCasesPanel />
-            <Map {...mapSettings}></Map>
-            <MoreInfoPanel />
-          </MainContainer>
+          {isMobile ? (
+            <ClickThroughPanel>
+              <TotalsPanel title="Totals" />
+              <WorldPanel title="World" />
+              <Map title="Map" {...mapSettings}></Map>
+            </ClickThroughPanel>
+          ) : (
+            <MainContainer>
+              <ConfirmedCasesPanel />
+              <Map {...mapSettings}></Map>
+              <MoreInfoPanel />
+            </MainContainer>
+          )}
         </Data.Provider>
       ) : (
         <div>Loading...</div>

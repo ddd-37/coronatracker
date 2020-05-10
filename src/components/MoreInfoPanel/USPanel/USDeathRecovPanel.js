@@ -5,9 +5,13 @@ import { Data } from "../../../pages/index";
 const USDeathRecovPanel = () => {
   const data = useContext(Data).states;
 
+  data.sort((a, b) => {
+    return b.deaths - a.deaths;
+  });
+
   return (
-    <div>
-      <div className="panel__header">
+    <>
+      <div className="text-center">
         <h4>US State level</h4>
         <h3>
           <strong>
@@ -36,7 +40,7 @@ const USDeathRecovPanel = () => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 

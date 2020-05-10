@@ -1,12 +1,24 @@
+.clickThroughPanel {
+  display: flex;
+}
+
 .clickThroughPanel,
 .clickThroughPanel .panel {
-  display: flex;
   flex-direction: column;
   margin-bottom: 0;
+  flex: 1 1 auto;
+}
+
+@include mobile-break {
+  .clickThroughPanel,
+  .clickThroughPanel .panel {
+    flex-grow: 1;
+  }
 }
 
 .panel__item-container {
-  max-height: 60vh;
+  height: 0;
+  flex: 1 1 auto;
   overflow-y: scroll;
   padding-bottom: 0;
 }
@@ -19,10 +31,7 @@
 
 .moreInfoPanel {
   display: flex;
-}
-
-.moreInfoPanel .clickThroughPanel {
-  flex: 0 0 50%;
+  flex: 1 1 auto;
 }
 
 .clickThroughPanel__btn-container {

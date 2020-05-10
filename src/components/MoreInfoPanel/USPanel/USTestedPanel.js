@@ -16,7 +16,7 @@ const USTestedPanel = () => {
   });
 
   return (
-    <div>
+    <>
       <div className="panel__header text-center">
         <h3>Total Tests in US</h3>
         <h2 className="text-blue">{totalTests.toLocaleString()}</h2>
@@ -33,7 +33,7 @@ const USTestedPanel = () => {
           );
         })}
       </div>
-    </div>
+    </>
   );
 };
 
