@@ -23,6 +23,7 @@ const IndexPage = () => {
   const [statesData, setStatesData] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -62,6 +63,7 @@ const IndexPage = () => {
         setIsError(true);
         console.log(`Index.js has a problem with getData: ${e.message}`, e);
       } finally {
+        setWindowWidth(window.innerWidth);
         setIsLoading(false);
       }
     };
@@ -69,7 +71,7 @@ const IndexPage = () => {
     getData();
   }, []);
 
-  const isMobile = window.innerWidth < 856;
+  const isMobile = windowWidth < 856;
 
   const LOCATION = {
     lat: 20,
