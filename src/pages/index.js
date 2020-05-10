@@ -88,7 +88,7 @@ const IndexPage = () => {
     mapEffect,
   };
 
-  const title = process.env.REACT_APP_TITLE;
+  const title = process.env.GATSBY_TITLE;
   return (
     <Layout pageName="home">
       <Helmet>
