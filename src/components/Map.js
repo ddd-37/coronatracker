@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { Map as BaseMap, TileLayer, ZoomControl } from "react-leaflet";
+import L from "leaflet";
 
 import { useConfigureLeaflet, useMapServices, useRefEffect } from "hooks";
 import { isDomAvailable } from "lib/util";
@@ -44,9 +45,16 @@ const Map = (props) => {
     );
   }
 
+  const bounds = new L.LatLngBounds(
+    new L.LatLng(-90, -180),
+    new L.LatLng(90, 180)
+  );
+
   const mapSettings = {
     className: "map-base",
     zoomControl: false,
+    maxBounds: bounds,
+    maxBoundsViscosity: 0,
     ...rest,
   };
 

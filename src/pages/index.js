@@ -14,13 +14,6 @@ import TotalConfirmedCases from "../components/ConfirmedCasesPanel/TotalConfirme
 import TotalsPanel from "../components/MobilePanels/TotalsPanel";
 import WorldPanel from "../components/MobilePanels/WorldPanel";
 
-const LOCATION = {
-  lat: 20,
-  lng: -20,
-};
-const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 2.5;
-
 const Data = createContext(null);
 
 const IndexPage = () => {
@@ -76,14 +69,23 @@ const IndexPage = () => {
     getData();
   }, []);
 
+  const isMobile = window.innerWidth < 856;
+
+  const LOCATION = {
+    lat: 20,
+    lng: -20,
+  };
+  const CENTER = [LOCATION.lat, LOCATION.lng];
+  const DEFAULT_ZOOM = isMobile ? 1 : 2.5;
+
   const mapSettings = {
     center: CENTER,
     defaultBaseMap: "Mapbox",
     zoom: DEFAULT_ZOOM,
+    noWrap: true,
     mapEffect,
   };
 
-  const isMobile = window.innerWidth < 856;
   return (
     <Layout pageName="home">
       <Helmet>
@@ -103,9 +105,9 @@ const IndexPage = () => {
         >
           {isMobile ? (
             <ClickThroughPanel>
+              <Map title="Map" {...mapSettings}></Map>
               <TotalsPanel title="Totals" />
               <WorldPanel title="World" />
-              <Map title="Map" {...mapSettings}></Map>
             </ClickThroughPanel>
           ) : (
             <MainContainer>
