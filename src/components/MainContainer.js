@@ -5,13 +5,13 @@ import { PropTypes } from "prop-types";
 const MainContainer = ({ children }) => {
   return (
     <div className="mainContainer">
-      <div className="main__Panel" id="main__1">
+      <div className="main__panel" id="main__1">
         {children[0]}
       </div>
-      <div className="main__Panel" id="main__2">
+      <div className="main__panel" id="main__2">
         {children[1]}
       </div>
-      <div className="main__Panel" id="main__3">
+      <div className="main__panel" id="main__3">
         {children[2]}
       </div>
     </div>

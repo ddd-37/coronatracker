@@ -2,7 +2,7 @@
   background: $panel-background;
   border: $panel-border;
   margin: 0 0.5rem 1rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0 0;
 }
 
 .panel__header {
@@ -12,17 +12,6 @@
   justify-content: center;
   min-height: 5rem;
   padding: 0 0.5rem;
-}
-
-.panel__item-container {
-  max-height: 55vh;
-  overflow-y: scroll;
-}
-
-.panel__item {
-  border-bottom: 1px solid $grey-dark;
-  margin-bottom: 0.25rem;
-  padding: 0.5rem 1rem;
 }
 
 .moreInfoPanel {

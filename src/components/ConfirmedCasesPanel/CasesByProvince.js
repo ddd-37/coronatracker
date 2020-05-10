@@ -5,9 +5,12 @@ const CasesByCountry = () => {
   const data = useContext(Data).province;
 
   let totalConfirmed = (
-    <section>
-      <div className="panel__header text-center">
-        <h4>Confirmed Cases by Province/State/Dependency</h4>
+    <>
+      <div className="text-center">
+        <h4>
+          Confirmed Cases by <br />
+          Province/State/Dependency
+        </h4>
       </div>
       <div className="panel__item-container">
         {data.map((data, i) => {
@@ -30,7 +33,7 @@ const CasesByCountry = () => {
         })}
       </div>
       <div></div>
-    </section>
+    </>
   );
 
   return totalConfirmed;

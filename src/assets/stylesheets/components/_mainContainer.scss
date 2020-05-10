@@ -2,6 +2,10 @@
   display: flex;
   flex: 1;
 }
+.main__panel {
+  display: flex;
+  flex-direction: column;
+}
 
 #main__1 {
   width: auto;

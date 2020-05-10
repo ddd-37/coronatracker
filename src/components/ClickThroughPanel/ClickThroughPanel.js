@@ -10,15 +10,17 @@ const ClickThroughPanel = ({ children }) => {
   const panels = children.map((panel, i) => {
     // Hide all panels after the first
     let display = { display: "none" };
+    let activeClass = "";
     if (i === activePanel) {
       display = { display: "block" };
+      activeClass = "active";
     }
 
     buttons.push(
       <button
         key={`btn-${i}`}
         onClick={() => setActivePanel(i)}
-        className="clickThrough__btn"
+        className={`clickThrough__btn ${activeClass}`}
       >
         {panel.props.title}
       </button>
@@ -34,7 +36,7 @@ const ClickThroughPanel = ({ children }) => {
   return (
     <div className="clickThroughPanel">
       {panels}
-      <div>{buttons}</div>
+      <div className="clickThroughPanel__btn-container">{buttons}</div>
     </div>
   );
 };

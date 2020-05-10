@@ -9,7 +9,7 @@ const CasesByArea = () => {
   });
 
   let totalConfirmed = (
-    <section>
+    <>
       <div className="text-center" style={{ marginBottom: ".5rem" }}>
         <h4>
           Confirmed Cases by
@@ -31,7 +31,7 @@ const CasesByArea = () => {
         })}
       </div>
       <div></div>
-    </section>
+    </>
   );
 
   return totalConfirmed;
