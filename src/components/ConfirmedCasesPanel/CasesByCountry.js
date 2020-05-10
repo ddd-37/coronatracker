@@ -10,7 +10,7 @@ const CasesByArea = () => {
 
   let totalConfirmed = (
     <>
-      <div className="text-center" style={{ marginBottom: ".5rem" }}>
+      <div className="text-center">
         <h4>
           Confirmed Cases by
           <br /> Country/Region/Sovereignty
