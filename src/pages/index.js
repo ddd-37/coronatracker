@@ -10,9 +10,9 @@ import MoreInfoPanel from "../components/MoreInfoPanel/MoreInfoPanel";
 import mapEffect from "./../utils/mapeffect";
 import axios from "axios";
 import ClickThroughPanel from "../components/ClickThroughPanel/ClickThroughPanel";
-import TotalConfirmedCases from "../components/ConfirmedCasesPanel/TotalConfirmedCases";
 import TotalsPanel from "../components/MobilePanels/TotalsPanel";
 import WorldPanel from "../components/MobilePanels/WorldPanel";
+import USTotalsPanel from "../components/MobilePanels/USTotalsPanel";
 
 const Data = createContext(null);
 
@@ -90,7 +90,7 @@ const IndexPage = () => {
   return (
     <Layout pageName="home">
       <Helmet>
-        <title>{title}}</title>
+        <title>{title}</title>
       </Helmet>
       {isError && (
         <div>Hmmm, something went wrong, try refreshing the page.</div>
@@ -109,6 +109,7 @@ const IndexPage = () => {
               <Map title="Map" {...mapSettings}></Map>
               <TotalsPanel title="Totals" />
               <WorldPanel title="World" />
+              <USTotalsPanel title="US" />
             </ClickThroughPanel>
           ) : (
             <MainContainer>
