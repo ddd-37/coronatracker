@@ -4,6 +4,7 @@
 
 .clickThroughPanel,
 .clickThroughPanel .panel {
+  position: relative;
   flex-direction: column;
   margin-bottom: 0;
   flex: 1 1 100%;
