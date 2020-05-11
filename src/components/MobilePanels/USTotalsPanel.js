@@ -19,26 +19,40 @@ const USPanel = () => {
 
   return (
     <>
-      <h4>US Case Statistics</h4>
-      <div className="panel__item-container">
+      <h2 className="text-center">US Case Statistics</h2>
+      <div className="panel__item-container ">
         {stateData.map((state) => {
           return (
-            <div key={state.state} className="panel__item">
-              <h4>{state.state}</h4>
-              <ul>
-                <li>
-                  Total Active: <span className="text-red">{state.cases}</span>
-                </li>
-                <li>
-                  Active Cases:{" "}
-                  <span className="text-green">{state.active}</span>
-                </li>
-                <li>Total Deaths: {state.deaths}</li>
-                <li>
-                  Tests/Million:{" "}
-                  <span className="text-blue">{state.testsPerOneMillion}</span>
-                </li>
-              </ul>
+            <div key={state.state} className="panel__item text-center">
+              <h3>
+                <strong>{state.state}</strong>
+              </h3>
+              <div className="flex-row">
+                <div className="flex-column">
+                  <div>
+                    <h3># Cases to Date</h3>
+                    <h2 className="text-red">{state.cases.toLocaleString()}</h2>
+                  </div>
+                  <div>
+                    <h5>Tests/Million</h5>
+                    <h2 className="text-blue">
+                      {state.testsPerOneMillion.toLocaleString()}
+                    </h2>
+                  </div>
+                </div>
+                <div className="flex-column">
+                  <div>
+                    <h5>Active Cases</h5>
+                    <h2 className="text-green">
+                      {state.active.toLocaleString()}
+                    </h2>
+                  </div>
+                  <div>
+                    <h5>Total Deaths</h5>{" "}
+                    <h2>{state.deaths.toLocaleString()}</h2>
+                  </div>
+                </div>
+              </div>
             </div>
           );
         })}
