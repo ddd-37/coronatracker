@@ -3,7 +3,6 @@ import { Data } from "../../pages/index";
 
 const USPanel = () => {
   const totalConfirmed = useContext(Data).global;
-  console.log("USPanel -> totalConfirmed", totalConfirmed);
   const stateData = useContext(Data).states;
 
   stateData.sort((a, b) => {
@@ -15,7 +14,6 @@ const USPanel = () => {
     }
     return 0;
   });
-  console.log("USPanel -> data", stateData);
 
   return (
     <>
