@@ -79,13 +79,22 @@ async function mapEffect({ leafletElement: map }) {
           </span>
         `;
 
+      const onCLickHtml = `
+        <h2>${country}</h2>
+        <ul>
+        <li><strong>Confirmed:</strong> ${cases}</li></ul>
+        <li><strong>Deaths:</strong> ${deaths}</li></ul>
+        <li><strong>Recovered:</strong> ${recovered}</li></ul>
+        <li><strong>Last Update:</strong> ${updatedFormatted}</li></ul>
+     `;
+
       return L.marker(latlng, {
         icon: L.divIcon({
           className: "icon",
           html,
         }),
         riseOneHover: true,
-      });
+      }).bindPopup(onCLickHtml);
     },
   });
 
