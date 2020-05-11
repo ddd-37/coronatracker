@@ -8,8 +8,8 @@
     background: $blue-grey-50;
   }
   @include mobile-break {
-    /* Since the map is flex-child, and flex will calculate the height after render, 
-    we need to give the map a height in order to get mapbox to render in full  */
+    /* This was a tough one, becuase I didn't want to specify an explicit height due to vary devices, I have to use absolute positioning
+    https://stackoverflow.com/questions/33636796/chrome-safari-not-filling-100-height-of-flex-parent  */
     position: absolute;
     top: 0;
     flex: 1 1 100%;
