@@ -1,7 +1,7 @@
 /* This file handle customizing how the leaflet popup looks */
-.leaflet-popup-content-wrapper,
-.leaflet-popup-tip {
-  background: rgba(59, 59, 59, 0.95);
+.leaflet-popup .leaflet-popup-content-wrapper,
+.leaflet-popup .leaflet-popup-tip {
+  background: transparentize($color: $grey-dark, $amount: 0.05);
 }
 
 .leaflet-popup-content {
