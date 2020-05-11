@@ -23,6 +23,8 @@ const IndexPage = () => {
   const [statesData, setStatesData] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+
+  // Since the window object isn't available to use when we build, we can go ahead and find the device width in useEffect
   const [windowWidth, setWindowWidth] = useState(false);
 
   useEffect(() => {

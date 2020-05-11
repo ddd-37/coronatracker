@@ -8,6 +8,9 @@
     background: $blue-grey-50;
   }
   @include mobile-break {
+    /* Since the map is flex-child, and flex will calculate the height after render, 
+    we need to give the map a height in order to get mapbox to render in full  */
+    height: 1px;
     flex-grow: 1;
   }
 }
