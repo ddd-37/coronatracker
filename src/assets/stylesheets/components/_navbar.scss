@@ -5,3 +5,26 @@
   height: 3rem;
   background: lighten($purple, 15%);
 }
+
+.navbar a {
+  align-items: center;
+  background-color: $deep-purple-500;
+  display: flex;
+  margin: 0 0.5rem;
+  padding: 0.7rem;
+  box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.3);
+  transition: ease-in-out 0.2s;
+}
+
+.navbar a:hover {
+  background-color: $deep-purple-800;
+}
+
+.navbar h4 {
+  margin-left: 0.75rem;
+}
+
+a.navbar-active {
+  background-color: $white-text;
+  color: $grey-dark;
+}
