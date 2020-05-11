@@ -11,8 +11,10 @@ const WorldPanel = () => {
         {countryData.map((country, i) => {
           return (
             <div key={country + i} className="panel__item">
-              <span className="text-red">{country.cases} </span>{" "}
-              {country.country} ({country.deaths})
+              <span className="text-red">
+                {country.cases.toLocaleString()}{" "}
+              </span>{" "}
+              {country.country} ({country.deaths.toLocaleString()})
             </div>
           );
         })}
