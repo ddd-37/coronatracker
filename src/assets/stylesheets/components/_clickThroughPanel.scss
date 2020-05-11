@@ -6,15 +6,7 @@
 .clickThroughPanel .panel {
   flex-direction: column;
   margin-bottom: 0;
-  flex: 1 1 auto;
-}
-
-@include mobile-break {
-  .clickThroughPanel,
-  .clickThroughPanel .panel {
-    flex-grow: 1;
-    height: 1px;
-  }
+  flex: 1 1 100%;
 }
 
 .panel__item-container {
