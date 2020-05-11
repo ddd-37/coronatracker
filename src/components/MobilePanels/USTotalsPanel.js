@@ -38,7 +38,6 @@ const USPanel = () => {
                   Tests/Million:{" "}
                   <span className="text-blue">{state.testsPerOneMillion}</span>
                 </li>
-                <li>Today's New Cases: {state.todayCases}</li>
               </ul>
             </div>
           );
