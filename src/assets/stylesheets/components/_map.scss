@@ -56,6 +56,11 @@
       display: block;
     }
   }
+
+  /* This will disable the popup on click for desktop */
+  &:active {
+    pointer-events: none;
+  }
 }
 
 .icon-marker-tooltip {

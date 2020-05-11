@@ -82,9 +82,9 @@ async function mapEffect({ leafletElement: map }) {
       const onCLickHtml = `
         <h2>${country}</h2>
         <ul>
-        <li><strong>Confirmed:</strong> ${cases}</li></ul>
-        <li><strong>Deaths:</strong> ${deaths}</li></ul>
-        <li><strong>Recovered:</strong> ${recovered}</li></ul>
+        <li><strong>Confirmed:</strong> ${cases}</li>
+        <li><strong>Deaths:</strong> ${deaths}</li>
+        <li><strong>Recovered:</strong> ${recovered}</li>
         <li><strong>Last Update:</strong> ${updatedFormatted}</li></ul>
      `;
 

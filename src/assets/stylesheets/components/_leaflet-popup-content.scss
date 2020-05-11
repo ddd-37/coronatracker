@@ -1,0 +1,25 @@
+/* This file handle customizing how the leaflet popup looks */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: transparentize($color: $grey-dark, $amount: 0.05);
+}
+
+.leaflet-popup-content {
+  margin: 0.25rem;
+  color: $white-text;
+  text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
+}
+
+.leaflet-popup-content h2 {
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.leaflet-popup-content ul {
+  padding: 0 0 0 0.5rem;
+  list-style-type: none;
+}
+
+.leaflet-popup-close-button {
+  display: none;
+}

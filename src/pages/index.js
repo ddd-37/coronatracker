@@ -80,7 +80,7 @@ const IndexPage = () => {
     lng: -20,
   };
   const CENTER = [LOCATION.lat, LOCATION.lng];
-  const DEFAULT_ZOOM = isMobile ? 1 : 2.5;
+  const DEFAULT_ZOOM = isMobile ? 2 : 2.5;
 
   const mapSettings = {
     center: CENTER,
