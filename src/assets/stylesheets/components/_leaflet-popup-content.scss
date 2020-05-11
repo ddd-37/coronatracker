@@ -4,7 +4,7 @@
   background: transparentize($color: $grey-dark, $amount: 0.05);
 }
 
-.leaflet-popup-content {
+.leaflet-popup .leaflet-popup-content {
   margin: 0.25rem;
   color: $white-text;
   text-shadow: 1px 3px 4px rgba(0, 0, 0, 0.5);
