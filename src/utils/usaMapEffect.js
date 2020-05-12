@@ -15,25 +15,82 @@ async function usaMapEffect({ leafletElement: map }) {
   let response;
 
   try {
-    response = await axios.get("https://corona.lmao.ninja/v2/countries");
+    response = await axios.get("https://disease.sh/v2/jhucsse/counties");
   } catch (e) {
     console.log(`Failed to fetch countries: ${e.message}`, e);
     return;
   }
 
-  const { data = [] } = response;
-
+  const { data = [] } = await response;
+  console.log("usaMapEffect -> data", data);
   // Check to see if our data is an array and had data
   const hasData = Array.isArray(data) && data.length > 0;
 
   if (!hasData) return;
 
   // Create our GeoJSON document
-  const geoJson = json;
+  const geoJson = json.features;
 
+  function getColor(d) {
+    return d > 5000
+      ? "#800026"
+      : d > 3000
+      ? "#BD0026"
+      : d > 1000
+      ? "#E31A1C"
+      : d > 500
+      ? "#FC4E2A"
+      : d > 250
+      ? "#FD8D3C"
+      : d > 100
+      ? "#FEB24C"
+      : d > 50
+      ? "#FED976"
+      : "#FFEDA0";
+  }
+
+  // Find the anmes that match from the json data vs the data return from johns hopkins
+
+  geoJson.sort((a, b) => {
+    if (a.properties.NAME < b.properties.NAME) {
+      return -1;
+    }
+    if (a.properties.NAME > b.properties.NAME) {
+      return 1;
+    }
+    return 0;
+  });
+
+  geoJson.forEach((obj1) => {
+    data.forEach((obj2) => {
+      if (obj1.properties.NAME === obj2.county) {
+        obj1.stats = obj2.stats;
+      }
+    });
+  });
+  console.log("usaMapEffect -> geoJson", geoJson);
+  //Append the numbers from the JHS data to geoJson
+  // Compare the county name
+  //If they match, append to properties
+
+  function style(feature) {
+    let fillColor = "#FFEDA0";
+    if (feature.stats) {
+      fillColor = getColor(feature.stats.confirmed);
+    }
+
+    return {
+      fillColor: fillColor,
+      weight: 1,
+      opacity: 1,
+      color: "#081217",
+      fillOpacity: 0.8,
+    };
+  }
   // Create a new instance of L.GeoJSON which will transform our GeoJSON document into something Leaflet will understand
   const geoJsonLayers = new L.GeoJSON(geoJson, {
     // Define a custom pointToLayer function. This allows us to customize the map layer Leaflet creates for our map
+    style: style,
     pointToLayer: (feature = {}, latlng) => {
       const { properties = {} } = feature;
       let updatedFormatted;

@@ -8,9 +8,9 @@ import axios from "axios";
  */
 
 // ToDo - look into useContext here
-async function mapEffect({ leafletElement: map }, type) {
+async function mapEffect({ leafletElement: map }) {
   let response;
-  console.log(type);
+
   try {
     response = await axios.get("https://corona.lmao.ninja/v2/countries");
   } catch (e) {

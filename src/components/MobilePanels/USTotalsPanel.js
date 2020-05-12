@@ -5,6 +5,7 @@ const USPanel = () => {
   const totalConfirmed = useContext(Data).global;
   const stateData = useContext(Data).states;
 
+  // Sort alphabetically
   stateData.sort((a, b) => {
     if (a.state < b.state) {
       return -1;
