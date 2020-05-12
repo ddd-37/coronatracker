@@ -1,8 +1,11 @@
 import L from "leaflet";
 import axios from "axios";
 
+var json = require("./../../content/usaCountyCoords.json");
+console.log("json", json);
+
 /**
- * worldMapEffect
+ * mapEffect
  * @description Fires a callback once the page renders
  * @example Here this is and example of being used to zoom in and set a popup on load
  */
@@ -26,23 +29,7 @@ async function usaMapEffect({ leafletElement: map }) {
   if (!hasData) return;
 
   // Create our GeoJSON document
-  const geoJson = {
-    type: "FeatureCollection",
-    features: data.map((country = {}) => {
-      const { countryInfo = {} } = country;
-      const { lat, long: lng } = countryInfo;
-      return {
-        type: "Feature",
-        properties: {
-          ...country,
-        },
-        geometry: {
-          type: "Point",
-          coordinates: [lng, lat],
-        },
-      };
-    }),
-  };
+  const geoJson = json;
 
   // Create a new instance of L.GeoJSON which will transform our GeoJSON document into something Leaflet will understand
   const geoJsonLayers = new L.GeoJSON(geoJson, {

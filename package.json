@@ -21,7 +21,8 @@
     "react-fontawesome": "^1.7.1",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.10.0",
-    "react-leaflet": "^2.6.3"
+    "react-leaflet": "^2.6.3",
+    "require": "^2.4.20"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
