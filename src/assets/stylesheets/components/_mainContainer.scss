@@ -8,13 +8,13 @@
 }
 
 #main__1 {
-  width: auto;
+  max-width: 15vw;
 }
 
 #main__2 {
-  flex: 0 0 50vw;
+  flex: 1 1 auto;
 }
 
 #main__3 {
-  flex: 0 0 30vw;
+  max-width: 30vw;
 }
