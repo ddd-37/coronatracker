@@ -86,10 +86,7 @@ const USAPage = () => {
             </ClickThroughPanel>
           ) : (
             <MainContainer>
-              <ClickThroughPanel>
-                <CasesByCounty title="Cases" />
-                <CasesByCounty title="Cases" />
-              </ClickThroughPanel>
+              <CasesByCounty title="Cases" />
               <Map {...mapSettings}></Map>
               <DeathsByCounty title="Deaths" />
             </MainContainer>
