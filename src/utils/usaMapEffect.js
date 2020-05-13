@@ -2,7 +2,6 @@ import L from "leaflet";
 import axios from "axios";
 
 var json = require("./../../content/usaCountyCoords.json");
-console.log("json", json);
 
 /**
  * mapEffect
@@ -22,7 +21,7 @@ async function usaMapEffect({ leafletElement: map }) {
   }
 
   const { data = [] } = await response;
-  console.log("usaMapEffect -> data", data);
+
   // Check to see if our data is an array and had data
   const hasData = Array.isArray(data) && data.length > 0;
 
@@ -61,6 +60,7 @@ async function usaMapEffect({ leafletElement: map }) {
     return 0;
   });
 
+  //ToDo - This is slow
   geoJson.forEach((obj1) => {
     data.forEach((obj2) => {
       if (obj1.properties.NAME === obj2.county) {
@@ -68,7 +68,7 @@ async function usaMapEffect({ leafletElement: map }) {
       }
     });
   });
-  console.log("usaMapEffect -> geoJson", geoJson);
+
   //Append the numbers from the JHS data to geoJson
   // Compare the county name
   //If they match, append to properties
