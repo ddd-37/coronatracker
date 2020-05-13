@@ -2,6 +2,7 @@ import L from "leaflet";
 import axios from "axios";
 
 var json = require("./../../content/usaCountyCoords.json");
+var stateCodes = require("./../../content/fipsToState.json");
 
 /**
  * mapEffect
@@ -44,13 +45,62 @@ async function usaMapEffect({ leafletElement: map }) {
     return 0;
   });
 
+  countyInfo.forEach((obj2) => {
+    console.log(obj2.properties);
+  });
+  // data.forEach((obj2) => {
+  //   console.log(obj2);
+  // });
   countyInfo.forEach((obj1) => {
     data.forEach((obj2) => {
+      // Our COVID Data
       if (obj1.properties.NAME === obj2.county) {
+        obj1.location = {
+          // Because some county names exist in multiple states, we can refrence the Federal Information Processing Standard state code to find the actual state
+          state: stateCodes[obj1.properties.STATE],
+          county: obj2.county,
+        };
         obj1.stats = obj2.stats;
       }
     });
   });
+
+  // Create custom controls (popups for ach county)
+  var info = L.control();
+
+  info.onAdd = function (map) {
+    this._div = L.DomUtil.create("div", "leaflet-info-container"); // create a div with a class "info"
+    this.update();
+    return this._div;
+  };
+
+  // method that we will use to update the control based on feature properties passed
+  info.update = function (props) {
+    if (props) {
+      let county = "No data found";
+      let state = "No data found";
+
+      if (props.location) {
+        county = props.location.county;
+        state = props.location.state;
+      }
+
+      let confirmed = "No data found";
+      let deaths = "No data found";
+      if (props.stats) {
+        confirmed = `${props.stats.confirmed} confirmed deaths`;
+        deaths = `${props.stats.deaths} confirmed cases`;
+      }
+      this._div.innerHTML =
+        `<h2>${county}, ${state}</h2>` +
+        `<h3 class="text-red"><strong>${confirmed}</strong> </h3>` +
+        `<h3><strong>${deaths}</strong> </h3>`;
+    }
+  };
+
+  info.addTo(map);
+
+  console.log("usaMapEffect -> countyInfo", countyInfo);
 
   // Function used to add colors with increasing intensity due to total case numbers
   function getColor(d) {
@@ -104,11 +154,12 @@ async function usaMapEffect({ leafletElement: map }) {
 
   var geojson;
 
-  // Function used to reset style on mouseout
+  // Function used to reset style on click
   function resetHighlight(e) {
     geojson.resetStyle(e.target);
   }
 
+  // Function used to zoom to feature on click
   function zoomToFeature(e) {
     map.fitBounds(e.target.getBounds());
   }
@@ -119,9 +170,12 @@ async function usaMapEffect({ leafletElement: map }) {
   function onEachFeature(feature, layer) {
     layer.on({
       click: function (e) {
+        console.log(layer.feature);
         if (clickedLayer !== null) {
           resetHighlight(clickedLayer);
+          info.update();
         }
+        info.update(layer.feature);
         zoomToFeature(e);
         // Store the newly clicked layer
         clickedLayer = e.target;

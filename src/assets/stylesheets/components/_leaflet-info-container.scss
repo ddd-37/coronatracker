@@ -1,0 +1,10 @@
+.leaflet-info-container {
+  background: transparentize($color: $purple, $amount: 0.05);
+  box-shadow: 2px 3px 5px transparentize($color: $purple, $amount: 0.3);
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.leaflet-info-container h3 {
+  font-size: 1.75rem;
+}
