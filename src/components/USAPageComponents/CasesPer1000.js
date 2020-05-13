@@ -19,7 +19,6 @@ const CasesPer1000 = () => {
       </h4>
       <div className="panel__item-container ">
         {confirmedCasesTop50.map((county, i) => {
-          console.log("CasesByCounty -> county", county);
           return (
             <div key={county + i} className="panel__item">
               <p className="text-red">
