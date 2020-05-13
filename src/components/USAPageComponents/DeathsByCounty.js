@@ -8,7 +8,7 @@ const DeathsByCounty = () => {
       return b.stats.deaths - a.stats.deaths;
     })
     .slice(0, 50);
-  console.log("DeathsByCounty -> deaths", deaths);
+
   return (
     <>
       <h3 className="text-center padding-all-m">
