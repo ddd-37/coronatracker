@@ -8,8 +8,8 @@ import MainContainer from "../components/MainContainer";
 
 import usaMapEffect from "./../utils/usaMapEffect";
 import axios from "axios";
-import ClickThroughPanel from "../components/ClickThroughPanel/ClickThroughPanel";
 
+import ClickThroughPanel from "../components/ClickThroughPanel/ClickThroughPanel";
 import CasesByCounty from "../components/USAPageComponents/CasesByCounty";
 import DeathsByCounty from "../components/USAPageComponents/DeathsByCounty";
 
@@ -32,7 +32,7 @@ const USAPage = () => {
         const response = await axios.get(
           "https://disease.sh/v2/jhucsse/counties"
         );
-        setCountyData(response);
+        setCountyData(response.data);
       } catch (e) {
         setIsError(true);
         console.log(`Index.js has a problem with getData: ${e.message}`, e);
@@ -65,7 +65,7 @@ const USAPage = () => {
 
   const title = process.env.GATSBY_TITLE;
   return (
-    <Layout pageName="home">
+    <Layout pageName="usa">
       <Helmet>
         <title>{title}</title>
       </Helmet>
@@ -73,7 +73,11 @@ const USAPage = () => {
         <div>Hmmm, something went wrong, try refreshing the page.</div>
       )}
       {!isError && !isLoading && countyData ? (
-        <USAData.Provider value={{}}>
+        <USAData.Provider
+          value={{
+            county: countyData,
+          }}
+        >
           {isMobile ? (
             <ClickThroughPanel>
               <Map title="Map" {...mapSettings}></Map>
@@ -82,7 +86,10 @@ const USAPage = () => {
             </ClickThroughPanel>
           ) : (
             <MainContainer>
-              <CasesByCounty title="Cases" />
+              <ClickThroughPanel>
+                <CasesByCounty title="Cases" />
+                <CasesByCounty title="Cases" />
+              </ClickThroughPanel>
               <Map {...mapSettings}></Map>
               <DeathsByCounty title="Deaths" />
             </MainContainer>

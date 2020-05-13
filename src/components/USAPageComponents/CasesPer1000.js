@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 
 import { USAData } from "./../../pages/usa";
 
-const CasesByCounty = () => {
+const CasesPer1000 = () => {
   // Sort the county data by highest total confirmd cases adn return just the top 50 results
   const confirmedCasesTop50 = useContext(USAData)
     .county.sort((a, b) => {
@@ -35,4 +35,4 @@ const CasesByCounty = () => {
   );
 };
 
-export default CasesByCounty;
+export default CasesPer1000;

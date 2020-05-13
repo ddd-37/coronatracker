@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Data } from "../../pages/index";
 
 const USPanel = () => {
-  const totalConfirmed = useContext(Data).global;
   const stateData = useContext(Data).states;
 
   // Sort alphabetically
