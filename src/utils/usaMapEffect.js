@@ -91,9 +91,9 @@ async function usaMapEffect({ leafletElement: map }) {
     var layer = e.target;
 
     layer.setStyle({
-      weight: 2,
-      color: "#f4f4f4",
-      fillOpacity: 0.7,
+      weight: 5,
+      color: "#fff",
+      fillOpacity: 1,
     });
 
     // IE, Opera and Edge have problems doing bringToFront on mouseover
@@ -113,16 +113,24 @@ async function usaMapEffect({ leafletElement: map }) {
     map.fitBounds(e.target.getBounds());
   }
 
+  // Store the clicked county so we can remove the style when we click on another county
+  let clickedLayer = null;
   //Add the listeners on our county layers
   function onEachFeature(feature, layer) {
     layer.on({
-      mouseover: highlightFeature,
-      mouseout: resetHighlight,
-      click: zoomToFeature,
+      click: function (e) {
+        if (clickedLayer !== null) {
+          resetHighlight(clickedLayer);
+        }
+        zoomToFeature(e);
+        // Store the newly clicked layer
+        clickedLayer = e.target;
+        highlightFeature(e);
+      },
     });
   }
-  // Create a new instance of L.GeoJSON which will transform our GeoJSON document into something Leaflet will understand
 
+  // Create a new instance of L.GeoJSON which will transform our GeoJSON document into something Leaflet will understand
   geojson = L.geoJson(countyInfo, {
     style: style,
     onEachFeature: onEachFeature,

@@ -59,6 +59,7 @@ const USAPage = () => {
     center: CENTER,
     defaultBaseMap: "Mapbox",
     zoom: DEFAULT_ZOOM,
+    maxZoom: 7,
     noWrap: true,
     mapEffect,
   };
