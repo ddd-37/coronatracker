@@ -34,9 +34,9 @@ async function usaMapEffect({ leafletElement: map }) {
   function getColor(d) {
     return d > 5000
       ? "#800026"
-      : d > 3000
-      ? "#BD0026"
       : d > 1000
+      ? "#BD0026"
+      : d > 500
       ? "#E31A1C"
       : d > 500
       ? "#FC4E2A"
@@ -83,7 +83,7 @@ async function usaMapEffect({ leafletElement: map }) {
       fillColor: fillColor,
       weight: 1,
       opacity: 1,
-      color: "#081217",
+      color: "rgba(0,0,0,.1)",
       fillOpacity: 0.8,
     };
   }
