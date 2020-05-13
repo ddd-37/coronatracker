@@ -130,9 +130,9 @@ async function usaMapEffect({ leafletElement: map }) {
 
     return {
       fillColor: fillColor,
-      weight: 1,
+      weight: 0.5,
       opacity: 1,
-      color: "rgba(0,0,0,.6)",
+      color: "rgba(35,19,57.1)",
       fillOpacity: 0.9,
     };
   }
