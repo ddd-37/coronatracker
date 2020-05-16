@@ -4,7 +4,11 @@ import { Data } from "../../../pages";
 const GlobalDeathsPanel = () => {
   const totalDeaths = useContext(Data).global.deaths;
   const countryData = useContext(Data).country;
+
   countryData.sort((a, b) => {
+    if (!a.deaths) {
+      return false;
+    }
     return b.deaths - a.deaths;
   });
 
@@ -16,6 +20,9 @@ const GlobalDeathsPanel = () => {
       </div>
       <div className="panel__item-container">
         {countryData.map((country, i) => {
+          if (!country.deaths) {
+            return false;
+          }
           return (
             <div key={country + i} className="panel__item">
               <p>

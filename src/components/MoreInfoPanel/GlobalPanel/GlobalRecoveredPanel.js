@@ -18,7 +18,7 @@ const GlobalRecovered = () => {
       <div className="panel__item-container">
         {countryData.map((country, i) => {
           // Some countries don't have data on the recovered, we can just omit for now
-          if (country.recovered === 0) {
+          if (!country.recovered) {
             return false;
           }
           return (
