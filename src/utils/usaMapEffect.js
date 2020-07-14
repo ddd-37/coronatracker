@@ -88,8 +88,8 @@ async function usaMapEffect({ leafletElement: map }) {
       let confirmed = "No data found";
       let deaths = "No data found";
       if (props.stats) {
-        confirmed = `${props.stats.confirmed} confirmed deaths`;
-        deaths = `${props.stats.deaths} confirmed cases`;
+        confirmed = `${props.stats.confirmed} confirmed cases`;
+        deaths = `${props.stats.deaths} confirmed deaths`;
       }
       this._div.innerHTML =
         `<h2>${county}, ${state}</h2>` +
